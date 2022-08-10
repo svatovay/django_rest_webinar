@@ -126,3 +126,5 @@ dmypy.json
 avocatodo/authapp/jsons/
 
 avocatodo/node_modules/
+
+_/
