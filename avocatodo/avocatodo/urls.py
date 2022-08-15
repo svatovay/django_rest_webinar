@@ -16,13 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from authapp.views import AvocatodoUserModelViewSet
-from todoapp.views import ProjectModelViewSet, ToDoModelViewSet
+from authapp.views import AvocatodoUserCustomViewSet
+from todoapp.views import ProjectModelFilterViewSet, ToDoModelFilterViewSet
 
 router = DefaultRouter()
-router.register('avocatodousers', AvocatodoUserModelViewSet)
-router.register('projects', ProjectModelViewSet)
-router.register('todos', ToDoModelViewSet)
+router.register('avocatodousers', AvocatodoUserCustomViewSet)
+router.register('projects', ProjectModelFilterViewSet)
+router.register('todos', ToDoModelFilterViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
