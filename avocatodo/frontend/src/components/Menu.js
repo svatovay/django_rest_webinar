@@ -3,7 +3,6 @@ import {Link} from 'react-router-dom'
 
 import '../bootstrap.css';
 
-
 const Menu = () => {
   return (
     <div className="container">

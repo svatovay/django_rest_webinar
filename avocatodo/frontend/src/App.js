@@ -55,30 +55,6 @@ class App extends React.Component {
 
   }
 
-  // componentDidMount() {
-  //   axios.get('http://127.0.0.1:8000/api/projects/')
-  //   .then(response => {
-  //     const projects = response.data.results
-  //     this.setState(
-  //       {
-  //         'projects': projects
-  //       }
-  //     )
-  //   }).catch(error => console.log(error))
-  // }
-
-  // componentDidMount() {
-  //   axios.get('http://127.0.0.1:8000/api/todos/')
-  //   .then(response => {
-  //     const todos = response.data.results
-  //     this.setState(
-  //       {
-  //         'todos': todos
-  //       }
-  //     )
-  //   }).catch(error => console.log(error))
-  // }
-
   render () {
     return (
       <div className="App">
