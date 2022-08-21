@@ -122,3 +122,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+avocatodo/authapp/jsons/
+
+avocatodo/node_modules/
+
+_/
