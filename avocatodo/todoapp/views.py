@@ -4,7 +4,7 @@ from rest_framework.viewsets import ModelViewSet
 from rest_framework.pagination import LimitOffsetPagination
 from .models import Project, ToDo
 from .filters import ProjectFilter, ToDoFilter
-from .serializers import ProjectModelSerializer, ToDoModelSerializer
+from .serializers import ProjectModelSerializer, ToDoModelSerializer, ToDoModelSerializerBase
 
 
 class ProjectLimitOffsetPagination(LimitOffsetPagination):
@@ -23,11 +23,16 @@ class ProjectModelFilterViewSet(ModelViewSet):
 
 
 class ToDoModelFilterViewSet(ModelViewSet):
-    permission_classes = [permissions.IsAuthenticated]
+    # permission_classes = [permissions.IsAuthenticated]
     queryset = ToDo.objects.all()
     serializer_class = ToDoModelSerializer
     pagination_class = ToDoLimitOffsetPagination
     filterset_class = ToDoFilter
+
+    def get_serializer_class(self):
+        if self.request.method in ['GET']:
+            return ToDoModelSerializer
+        return ToDoModelSerializerBase
 
     def destroy(self, request, *args, **kwargs):
         todo = self.get_object()

@@ -13,11 +13,11 @@ class Project(models.Model):
 
 class ToDo(models.Model):
     name = models.CharField(max_length=100, blank=False, unique=True)
-    project = models.ForeignKey(Project, related_name='todos', on_delete=models.CASCADE)
+    project = models.ForeignKey(Project, related_name='todos', on_delete=models.CASCADE, db_constraint=False)
     description = models.TextField(max_length=500, blank=False)
     create_date = models.DateField(auto_now_add=True)
     update_date = models.DateField(auto_now=True)
-    creator = models.ForeignKey(AvocatodoUser, on_delete=models.CASCADE)
+    creator = models.ForeignKey(AvocatodoUser, on_delete=models.CASCADE, db_constraint=False)
     is_active = models.BooleanField(default=True)
 
     def __str__(self):

@@ -11,10 +11,17 @@ class ProjectModelSerializer(serializers.ModelSerializer):
         fields = ['name', 'repo_link', 'users', 'todos']
 
 
+class ToDoModelSerializerBase(serializers.ModelSerializer):
+    class Meta:
+        model = ToDo
+        fields = '__all__'
+
+
 class ToDoModelSerializer(serializers.ModelSerializer):
     creator = serializers.StringRelatedField()
     project = serializers.StringRelatedField()
 
     class Meta:
         model = ToDo
-        exclude = ['id']
+        fields = '__all__'
+        # exclude = ['id']
