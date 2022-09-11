@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-const ToDo = ({todo}) => {
+const ToDo = ({todo, deleteToDo}) => {
   return (
     <tr>
       <td>
@@ -22,12 +22,17 @@ const ToDo = ({todo}) => {
       <td>
         {todo.updateDate}
       </td>
+      <td>
+        <button onClick={() => deleteToDo(todo.id)} type='button'>
+          Delete
+        </button>
+      </td>
     </tr>
   )
 }
 
 
-const ToDos = ({todos}) => {
+const ToDos = ({todos, deleteToDo}) => {
   return (
     <div className="container">
       <table className="table table-striped">
@@ -51,10 +56,13 @@ const ToDos = ({todos}) => {
             <th scope="col">
               Update Date
             </th>
+            <th scope="col">
+              Delete ToDo
+            </th>
           </tr>
         </thead>
         <tbody>
-          {todos.map((todo) => <ToDo todo={todo} />)}
+          {todos.map((todo) => <ToDo todo={todo} deleteToDo={deleteToDo} />)}
         </tbody>
       </table>
     </div>

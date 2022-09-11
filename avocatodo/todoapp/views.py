@@ -23,7 +23,7 @@ class ProjectModelFilterViewSet(ModelViewSet):
 
 
 class ToDoModelFilterViewSet(ModelViewSet):
-    # permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.IsAuthenticated]
     queryset = ToDo.objects.all()
     serializer_class = ToDoModelSerializer
     pagination_class = ToDoLimitOffsetPagination
