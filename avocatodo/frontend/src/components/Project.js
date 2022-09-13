@@ -15,7 +15,7 @@ const ProjectItem = ({project, deleteProject}) => {
         {project.users.map((user) => <p> {user} </p>)}
       </td>
       <td>
-        {project.todos}
+        {project.todos.map((todo) => <p> {todo} </p>)}
       </td>
       <td>
         <button  onClick={() => deleteProject(project.id)} type='button'>
